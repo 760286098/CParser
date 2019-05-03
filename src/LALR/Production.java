@@ -39,9 +39,6 @@ public class Production {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder(left).append("->");
-        if (right.length == 0) {
-            return result.append(LALR.getStrEpsilon()).toString();
-        }
         for (String s : right) result.append(s).append(" ");
         return result.toString().substring(0, result.length() - 1);
     }

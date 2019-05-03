@@ -4,14 +4,14 @@ import java.io.*;
 import java.util.*;
 
 public class LALR {
-    private static final String strS = "S'";
-    private static final String strEOF = "$";
-    private static final String strEpsilon = "ε";
-    private static String startSymbol;
+    private static final String START = "S'";
+    private static final String EOF = "$";
+    private String startSymbol;
 
     private ArrayList<Production> productions = new ArrayList<>();
     private ArrayList<String> vts = new ArrayList<>();
     private ArrayList<String> vns = new ArrayList<>();
+    private HashSet<String> usedSymbol = new HashSet<>();
     private HashMap<String, HashSet<String>> firsts = new HashMap<>();
     private HashMap<String, HashSet<String>> follows = new HashMap<>();
 
@@ -37,85 +37,65 @@ public class LALR {
         long startTime = System.currentTimeMillis();
         LALR lalr = new LALR("文法.txt");
         long endTime = System.currentTimeMillis();
-        System.out.println("处理完成, 状态数目：" + lalr.statuses.size() + " , 冲突数目：" + lalr.conflicts.size() + " , 用时：" + (endTime - startTime) + "ms");
-    }
-
-    static String getStrEpsilon() {
-        return strEpsilon;
+        HashSet<String> unused = lalr.getUnusedSymbol();
+        if (!unused.isEmpty()) {
+            System.out.println("警告！如下符号未曾使用：" + unused);
+        }
+        System.out.println("处理完成, 状态数目：" + lalr.core_projects.size() + " , 冲突数目：" + lalr.conflicts.size() + " , 用时：" + (endTime - startTime) + "ms");
     }
 
     private void Init(String path) {
+        HashSet<String> vnsTmp = new HashSet<>();
         HashSet<String> allSymbol = new HashSet<>();
         try {
             BufferedReader br = new BufferedReader(new FileReader(new File(path)));
             String s;
-            int stage = 0;
+            String left = null;
+            startSymbol = br.readLine().trim();
             while ((s = br.readLine()) != null) {
-                if (s.matches("\\s*")) {
-                    stage++;
-                    continue;
-                }
-                s = s.trim();
-                if (stage == 0) {
-                    for (String n : s.split("\\s+"))
-                        if (!vns.contains(n))
-                            vns.add(n);
-                } else if (stage == 1) {
-                    for (String n : s.split("\\s+"))
-                        if (!vts.contains(n))
-                            vts.add(n);
-                } else {
-                    String left = s.substring(0, s.indexOf("->"));
-                    String right = s.substring(s.indexOf("->") + 2);
-                    for (String string : right.split("\\$")) {
-                        String[] rights = string.trim().split("\\s+");
-                        if (rights[0].equals(strEpsilon)) {
-                            rights = new String[0];
-                        }
-                        Production production = new Production(left, rights);
-                        productions.add(production);
-                        allSymbol.add(left);
-                        allSymbol.addAll(Arrays.asList(rights));
+                if (!(s = s.trim()).equals("")) {
+                    if (s.endsWith(":")) {
+                        left = s.substring(0, s.length() - 1).trim();
+                        vnsTmp.add(left);
+                        continue;
                     }
+                    String[] right = s.split("\\s+");
+                    addProduction(left, right);
+                    allSymbol.addAll(Arrays.asList(right));
                 }
             }
             br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        allSymbol.removeAll(vns);
-        allSymbol.removeAll(vts);
-        if (!allSymbol.isEmpty()) {
-            System.out.println("未知符号： " + allSymbol);
-            System.exit(-1);
+        vns.addAll(vnsTmp);
+        allSymbol.removeAll(vnsTmp);
+        for (String symbol : allSymbol) {
+            if (!symbol.endsWith("opt")) {
+                vts.add(symbol);
+            }
         }
-        startSymbol = vns.get(0);
-        productions.add(0, new Production(strS, new String[]{startSymbol}));
+        productions.add(0, new Production(START, new String[]{startSymbol}));
+    }
 
-//        /* ****************************************压力测试****************************************** */
-//        vns.add("S");
-//        int n = 6; //2->24 3->77 4->254 5>867 6->2996 7->10313
-//        for (int i = 1; i <= n; i++) {
-//            vns.add("A" + i);
-//            vns.add("B" + i);
-//            vts.add("a" + i);
-//            vts.add("b" + i);
-//
-//            productions.add(new Production("S", new String[]{"A" + i}));
-//            productions.add(new Production("A" + i, new String[]{"a" + i, "B" + i}));
-//            productions.add(new Production("A" + i, new String[]{"b" + i}));
-//            productions.add(new Production("B" + i, new String[]{"b" + i}));
-//
-//            for (int j = 1; j <= n; j++) {
-//                if (i != j) {
-//                    productions.add(new Production("A" + i, new String[]{"a" + j, "A" + i}));
-//                    productions.add(new Production("B" + i, new String[]{"a" + j, "B" + i}));
-//                }
-//            }
-//        }
-//        startSymbol = vns.get(0);
-//        productions.add(0, new Production(strS, new String[]{startSymbol}));
-//        /* ****************************************压力测试****************************************** */
+    private void addProduction(String left, String[] right) {
+        boolean has_opt = false;
+        for (int i = 0; i < right.length; i++) {
+            String string = right[i];
+            if (string.endsWith("opt")) {
+                has_opt = true;
+                String[] right1 = Arrays.copyOf(right, right.length);
+                right1[i] = string.substring(0, string.length() - 3);
+                String[] right2 = Arrays.copyOf(right, right.length - 1);
+                if (right2.length - i >= 0) System.arraycopy(right, i + 1, right2, i, right2.length - i);
+                addProduction(left, right1);
+                addProduction(left, right2);
+                break;
+            }
+        }
+        if (!has_opt) {
+            productions.add(new Production(left, right));
+        }
     }
 
     private void First() {
@@ -135,13 +115,13 @@ public class LALR {
                 }
             }
         } while (isChanged);
-        firsts.put(strS, firsts.get(startSymbol));
+        firsts.put(START, firsts.get(startSymbol));
     }
 
     private void Follow() {
         HashSet<String> initialFollow = new HashSet<>();
-        initialFollow.add(strEOF);
-        follows.put(strS, initialFollow);
+        initialFollow.add(EOF);
+        follows.put(START, initialFollow);
 
         for (String vn : vns) {
             HashSet<String> followSet = new HashSet<>();
@@ -159,12 +139,7 @@ public class LALR {
                             if (i == right.length - 1) {
                                 isChanged |= follows.get(vn).addAll(follows.get(production.getLeft()));
                             } else {
-                                HashSet<String> tmp = getFirst(right, i + 1);
-                                if (tmp.contains(strEpsilon)) {
-                                    tmp.remove(strEpsilon);
-                                    tmp.addAll(follows.get(production.getLeft()));
-                                }
-                                isChanged |= follows.get(vn).addAll(tmp);
+                                isChanged |= follows.get(vn).addAll(getFirst(right, i + 1));
                             }
                         }
                     }
@@ -176,9 +151,6 @@ public class LALR {
     private HashSet<String> getFirst(String[] right, int index) {
         HashSet<String> first = new HashSet<>();
         if (index == right.length) {
-            if (index == 0) {
-                first.add(strEpsilon);
-            }
             return first;
         }
 
@@ -190,12 +162,6 @@ public class LALR {
         if (isVn(s)) {
             first.addAll(firsts.get(s));
         }
-        if (first.contains(strEpsilon)) {
-            if (index != right.length - 1) {
-                first.addAll(getFirst(right, index + 1));
-                first.remove(strEpsilon);
-            }
-        }
         return first;
     }
 
@@ -206,6 +172,7 @@ public class LALR {
 
         for (int i = 0; i < core_projects.size(); i++) {
             projects = closure(core_projects.get(i));
+            statuses.add(projects);
             for (Project project : projects) {
                 String nextString = project.getNextString();
                 if (nextString != null) {// shift项目或者goto项目
@@ -217,10 +184,10 @@ public class LALR {
                         fillTable(i, nextString, String.valueOf(core_projects.indexOf(tmp)));
                     }
                 } else {// 如果dot在句尾，则是reduce项目
-                    if (project.getProduction().getLeft().equals(strS)) {
-                        fillTable(i, strEOF, "acc");// i行EOF列为acc
+                    if (project.getProduction().getLeft().equals(START)) {
+                        fillTable(i, EOF, "acc");// i行EOF列为acc
                     } else {
-                        positionOFR.put(new AbstractMap.SimpleEntry<>(i, projects.indexOf(project)), "r" + productions.indexOf(project.getProduction()));
+                        positionOFR.put(new AbstractMap.SimpleEntry<>(i, core_projects.get(i).indexOf(project)), "r" + productions.indexOf(project.getProduction()));
                     }
                 }
             }
@@ -258,7 +225,6 @@ public class LALR {
         return result;
     }
 
-    @SuppressWarnings("unchecked")
     private void GetLookahead() {
         for (int i = 0; i < core_projects.size(); i++) {
             ArrayList<Project> projects = core_projects.get(i);
@@ -268,14 +234,15 @@ public class LALR {
                     ArrayList<Project> closure = closureWithLookahead(project);
                     for (Project item : closure) {
                         if (item.getNextString() != null) {
-                            HashSet<String> lookahead = item.getLookahead();
                             String s = lookupTable(i, item.getNextString());
                             if (s.startsWith("s")) {
                                 s = s.substring(1);
                             }
                             int indexOfProjects = Integer.parseInt(s);
                             int indexOfProject = core_projects.get(indexOfProjects).indexOf(item.getNextProject());
-                            if (lookahead.contains(strEOF)) {
+
+                            HashSet<String> lookahead = item.getLookahead();
+                            if (lookahead.contains(EOF)) {
                                 Map.Entry<Integer, Integer> entry = new AbstractMap.SimpleEntry<>(i, j);
                                 Map.Entry<Integer, Integer> value = new AbstractMap.SimpleEntry<>(indexOfProjects, indexOfProject);
                                 HashSet<Map.Entry<Integer, Integer>> hashSet = transform.get(entry);
@@ -287,8 +254,7 @@ public class LALR {
                                     hashSet.add(value);
                                 }
                             }
-                            lookahead = (HashSet<String>) lookahead.clone();
-                            lookahead.remove(strEOF);
+                            lookahead.remove(EOF);
                             if (!lookahead.isEmpty()) {
                                 Map.Entry<Integer, Integer> entry = new AbstractMap.SimpleEntry<>(indexOfProjects, indexOfProject);
                                 HashSet<String> hashSet = spontaneous_symbol.get(entry);
@@ -302,20 +268,18 @@ public class LALR {
                         }
                     }
                 }
-                project.setLookahead(new HashSet<>());
+                project.getLookahead().clear();
             }
         }
+        HashSet<String> start = new HashSet<>();
+        start.add(EOF);
+        spontaneous_symbol.put(new AbstractMap.SimpleEntry<>(0, 0), start);
     }
 
     private ArrayList<Project> closureWithLookahead(Project sourceProject) {
-        ArrayList<Project> projects = new ArrayList<>();
-        sourceProject.getLookahead().add(strEOF);
-        projects.add(sourceProject);
-        return closureWithLookahead(projects);
-    }
-
-    private ArrayList<Project> closureWithLookahead(ArrayList<Project> projects) {
-        ArrayList<Project> result = new ArrayList<>(projects);
+        ArrayList<Project> result = new ArrayList<>();
+        sourceProject.getLookahead().add(EOF);
+        result.add(sourceProject);
         boolean isChanged;
         do {
             isChanged = false;
@@ -327,12 +291,7 @@ public class LALR {
                     if (string == null) {
                         lookahead.addAll(project.getLookahead());
                     } else if (isVn(string)) {
-                        HashSet<String> firstOfString = firsts.get(string);
-                        lookahead.addAll(firstOfString);
-                        if (firstOfString.contains(strEpsilon)) {
-                            lookahead.addAll(project.getLookahead());
-                            lookahead.remove(strEpsilon);
-                        }
+                        lookahead.addAll(firsts.get(string));
                     } else if (isVt(string)) {
                         lookahead.add(string);
                     }
@@ -343,7 +302,7 @@ public class LALR {
                             if (result.contains(newProject)) {
                                 isChanged |= result.get(result.indexOf(newProject)).getLookahead().addAll(lookahead);
                             } else {
-                                newProject.setLookahead(lookahead);
+                                newProject.getLookahead().addAll(lookahead);
                                 result.add(newProject);
                                 isChanged = true;
                             }
@@ -356,7 +315,6 @@ public class LALR {
     }
 
     private void FillRWithLookahead() {
-        core_projects.get(0).get(0).getLookahead().add(strEOF);
         for (Map.Entry<Integer, Integer> key : spontaneous_symbol.keySet()) {
             core_projects.get(key.getKey()).get(key.getValue()).getLookahead().addAll(spontaneous_symbol.get(key));
         }
@@ -372,12 +330,8 @@ public class LALR {
             }
         } while (isChanged);
 
-        for (ArrayList<Project> projects : core_projects) {
-            statuses.add(closureWithLookahead(projects));
-        }
-
         for (Map.Entry<Integer, Integer> key : positionOFR.keySet()) {
-            Project project = statuses.get(key.getKey()).get(key.getValue());
+            Project project = core_projects.get(key.getKey()).get(key.getValue());
 //            for (String vt : vts) {// LR(0)
 //                fillTable(key.getKey(), vt, positionOFR.get(key));
 //            }
@@ -392,7 +346,7 @@ public class LALR {
 
     private void Show() {
         ArrayList<String> header = new ArrayList<>(vts);
-        header.add(strEOF);
+        header.add(EOF);
         header.addAll(vns);
 
         try {
@@ -443,9 +397,9 @@ public class LALR {
                 String value = table.get(entry);
                 writer.println(entry.getValue() + "    " + entry.getKey() + "   " + value);
 
-                if (value.startsWith("r")) {
+                if (value.startsWith("r") && value.contains("s")) {
                     value = value.substring(value.indexOf("s"));
-                } else {
+                } else if (value.startsWith("s") && value.contains("r")) {
                     value = value.substring(0, value.indexOf("r"));
                 }
                 table.put(entry, value);
@@ -464,6 +418,13 @@ public class LALR {
         }
     }
 
+    private HashSet<String> getUnusedSymbol() {
+        HashSet<String> result = new HashSet<>(vns);
+        result.addAll(vts);
+        result.removeAll(usedSymbol);
+        return result;
+    }
+
     private boolean isVt(String s) {
         return vts.contains(s);
     }
@@ -473,6 +434,7 @@ public class LALR {
     }
 
     private void fillTable(int row, String column, String value) {
+        usedSymbol.add(column);
         if (isVt(column) && !value.startsWith("r")) {
             value = "s" + value;
         }

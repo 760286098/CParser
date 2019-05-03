@@ -21,13 +21,9 @@ public class Project {
         return lookahead;
     }
 
-    void setLookahead(HashSet<String> lookahead) {
-        this.lookahead = lookahead;
-    }
-
     Project getNextProject() {
         Project tmp = new Project(production, dot + 1);
-        tmp.lookahead = lookahead;
+        tmp.lookahead = new HashSet<>();
         return tmp;
     }
 
