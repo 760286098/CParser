@@ -82,6 +82,9 @@ class Lexer {
 
                 Token token;
                 String m = matcher.group(1);
+                if (m.equals("")) {
+                    break;
+                }
                 pos += s.indexOf(m);
                 if (matcher.group("COMMENT") != null) {
                     token = new Token(line - getNumOfLine(m), m, TokenType.COMMENT, pos);
