@@ -1,0 +1,555 @@
+translation-unit
+└─external-declaration
+  └─function-definition
+    ├─declaration-specifiers
+    │ └─type-specifier
+    │   └─int
+    ├─declarator
+    │ └─direct-declarator
+    │   ├─direct-declarator
+    │   │ └─main
+    │   ├─(
+    │   └─)
+    └─compound-statement
+      ├─{
+      ├─block-item-list
+      │ ├─block-item-list
+      │ │ ├─block-item-list
+      │ │ │ ├─block-item-list
+      │ │ │ │ ├─block-item-list
+      │ │ │ │ │ └─block-item
+      │ │ │ │ │   └─declaration
+      │ │ │ │ │     ├─declaration-specifiers
+      │ │ │ │ │     │ └─type-specifier
+      │ │ │ │ │     │   └─int
+      │ │ │ │ │     ├─init-declarator-list
+      │ │ │ │ │     │ └─init-declarator
+      │ │ │ │ │     │   ├─declarator
+      │ │ │ │ │     │   │ └─direct-declarator
+      │ │ │ │ │     │   │   └─i
+      │ │ │ │ │     │   ├─=
+      │ │ │ │ │     │   └─initializer
+      │ │ │ │ │     │     └─assignment-expression
+      │ │ │ │ │     │       └─conditional-expression
+      │ │ │ │ │     │         └─logical-OR-expression
+      │ │ │ │ │     │           └─logical-AND-expression
+      │ │ │ │ │     │             └─inclusive-OR-expression
+      │ │ │ │ │     │               └─exclusive-OR-expression
+      │ │ │ │ │     │                 └─AND-expression
+      │ │ │ │ │     │                   └─equality-expression
+      │ │ │ │ │     │                     └─relational-expression
+      │ │ │ │ │     │                       └─shift-expression
+      │ │ │ │ │     │                         └─additive-expression
+      │ │ │ │ │     │                           └─multiplicative-expression
+      │ │ │ │ │     │                             └─cast-expression
+      │ │ │ │ │     │                               └─unary-expression
+      │ │ │ │ │     │                                 └─postfix-expression
+      │ │ │ │ │     │                                   └─primary-expression
+      │ │ │ │ │     │                                     └─0
+      │ │ │ │ │     └─;
+      │ │ │ │ └─block-item
+      │ │ │ │   └─declaration
+      │ │ │ │     ├─declaration-specifiers
+      │ │ │ │     │ └─type-specifier
+      │ │ │ │     │   └─int
+      │ │ │ │     ├─init-declarator-list
+      │ │ │ │     │ └─init-declarator
+      │ │ │ │     │   ├─declarator
+      │ │ │ │     │   │ └─direct-declarator
+      │ │ │ │     │   │   └─count
+      │ │ │ │     │   ├─=
+      │ │ │ │     │   └─initializer
+      │ │ │ │     │     └─assignment-expression
+      │ │ │ │     │       └─conditional-expression
+      │ │ │ │     │         └─logical-OR-expression
+      │ │ │ │     │           └─logical-AND-expression
+      │ │ │ │     │             └─inclusive-OR-expression
+      │ │ │ │     │               └─exclusive-OR-expression
+      │ │ │ │     │                 └─AND-expression
+      │ │ │ │     │                   └─equality-expression
+      │ │ │ │     │                     └─relational-expression
+      │ │ │ │     │                       └─shift-expression
+      │ │ │ │     │                         └─additive-expression
+      │ │ │ │     │                           └─multiplicative-expression
+      │ │ │ │     │                             └─cast-expression
+      │ │ │ │     │                               └─unary-expression
+      │ │ │ │     │                                 └─postfix-expression
+      │ │ │ │     │                                   └─primary-expression
+      │ │ │ │     │                                     └─0
+      │ │ │ │     └─;
+      │ │ │ └─block-item
+      │ │ │   └─statement
+      │ │ │     └─iteration-statement
+      │ │ │       ├─for
+      │ │ │       ├─(
+      │ │ │       ├─expression
+      │ │ │       │ └─assignment-expression
+      │ │ │       │   ├─unary-expression
+      │ │ │       │   │ └─postfix-expression
+      │ │ │       │   │   └─primary-expression
+      │ │ │       │   │     └─i
+      │ │ │       │   ├─assignment-operator
+      │ │ │       │   │ └─=
+      │ │ │       │   └─assignment-expression
+      │ │ │       │     └─conditional-expression
+      │ │ │       │       └─logical-OR-expression
+      │ │ │       │         └─logical-AND-expression
+      │ │ │       │           └─inclusive-OR-expression
+      │ │ │       │             └─exclusive-OR-expression
+      │ │ │       │               └─AND-expression
+      │ │ │       │                 └─equality-expression
+      │ │ │       │                   └─relational-expression
+      │ │ │       │                     └─shift-expression
+      │ │ │       │                       └─additive-expression
+      │ │ │       │                         └─multiplicative-expression
+      │ │ │       │                           └─cast-expression
+      │ │ │       │                             └─unary-expression
+      │ │ │       │                               └─postfix-expression
+      │ │ │       │                                 └─primary-expression
+      │ │ │       │                                   └─100
+      │ │ │       ├─;
+      │ │ │       ├─expression
+      │ │ │       │ └─assignment-expression
+      │ │ │       │   └─conditional-expression
+      │ │ │       │     └─logical-OR-expression
+      │ │ │       │       └─logical-AND-expression
+      │ │ │       │         └─inclusive-OR-expression
+      │ │ │       │           └─exclusive-OR-expression
+      │ │ │       │             └─AND-expression
+      │ │ │       │               └─equality-expression
+      │ │ │       │                 └─relational-expression
+      │ │ │       │                   ├─relational-expression
+      │ │ │       │                   │ └─shift-expression
+      │ │ │       │                   │   └─additive-expression
+      │ │ │       │                   │     └─multiplicative-expression
+      │ │ │       │                   │       └─cast-expression
+      │ │ │       │                   │         └─unary-expression
+      │ │ │       │                   │           └─postfix-expression
+      │ │ │       │                   │             └─primary-expression
+      │ │ │       │                   │               └─i
+      │ │ │       │                   ├─<=
+      │ │ │       │                   └─shift-expression
+      │ │ │       │                     └─additive-expression
+      │ │ │       │                       └─multiplicative-expression
+      │ │ │       │                         └─cast-expression
+      │ │ │       │                           └─unary-expression
+      │ │ │       │                             └─postfix-expression
+      │ │ │       │                               └─primary-expression
+      │ │ │       │                                 └─200
+      │ │ │       ├─;
+      │ │ │       ├─expression
+      │ │ │       │ └─assignment-expression
+      │ │ │       │   └─conditional-expression
+      │ │ │       │     └─logical-OR-expression
+      │ │ │       │       └─logical-AND-expression
+      │ │ │       │         └─inclusive-OR-expression
+      │ │ │       │           └─exclusive-OR-expression
+      │ │ │       │             └─AND-expression
+      │ │ │       │               └─equality-expression
+      │ │ │       │                 └─relational-expression
+      │ │ │       │                   └─shift-expression
+      │ │ │       │                     └─additive-expression
+      │ │ │       │                       └─multiplicative-expression
+      │ │ │       │                         └─cast-expression
+      │ │ │       │                           └─unary-expression
+      │ │ │       │                             └─postfix-expression
+      │ │ │       │                               ├─postfix-expression
+      │ │ │       │                               │ └─primary-expression
+      │ │ │       │                               │   └─i
+      │ │ │       │                               └─++
+      │ │ │       ├─)
+      │ │ │       └─statement
+      │ │ │         └─compound-statement
+      │ │ │           ├─{
+      │ │ │           ├─block-item-list
+      │ │ │           │ ├─block-item-list
+      │ │ │           │ │ ├─block-item-list
+      │ │ │           │ │ │ └─block-item
+      │ │ │           │ │ │   └─declaration
+      │ │ │           │ │ │     ├─declaration-specifiers
+      │ │ │           │ │ │     │ └─type-specifier
+      │ │ │           │ │ │     │   └─int
+      │ │ │           │ │ │     ├─init-declarator-list
+      │ │ │           │ │ │     │ └─init-declarator
+      │ │ │           │ │ │     │   ├─declarator
+      │ │ │           │ │ │     │   │ └─direct-declarator
+      │ │ │           │ │ │     │   │   └─j
+      │ │ │           │ │ │     │   ├─=
+      │ │ │           │ │ │     │   └─initializer
+      │ │ │           │ │ │     │     └─assignment-expression
+      │ │ │           │ │ │     │       └─conditional-expression
+      │ │ │           │ │ │     │         └─logical-OR-expression
+      │ │ │           │ │ │     │           └─logical-AND-expression
+      │ │ │           │ │ │     │             └─inclusive-OR-expression
+      │ │ │           │ │ │     │               └─exclusive-OR-expression
+      │ │ │           │ │ │     │                 └─AND-expression
+      │ │ │           │ │ │     │                   └─equality-expression
+      │ │ │           │ │ │     │                     └─relational-expression
+      │ │ │           │ │ │     │                       └─shift-expression
+      │ │ │           │ │ │     │                         └─additive-expression
+      │ │ │           │ │ │     │                           └─multiplicative-expression
+      │ │ │           │ │ │     │                             └─cast-expression
+      │ │ │           │ │ │     │                               └─unary-expression
+      │ │ │           │ │ │     │                                 └─postfix-expression
+      │ │ │           │ │ │     │                                   └─primary-expression
+      │ │ │           │ │ │     │                                     └─0
+      │ │ │           │ │ │     └─;
+      │ │ │           │ │ └─block-item
+      │ │ │           │ │   └─statement
+      │ │ │           │ │     └─iteration-statement
+      │ │ │           │ │       ├─for
+      │ │ │           │ │       ├─(
+      │ │ │           │ │       ├─expression
+      │ │ │           │ │       │ └─assignment-expression
+      │ │ │           │ │       │   ├─unary-expression
+      │ │ │           │ │       │   │ └─postfix-expression
+      │ │ │           │ │       │   │   └─primary-expression
+      │ │ │           │ │       │   │     └─j
+      │ │ │           │ │       │   ├─assignment-operator
+      │ │ │           │ │       │   │ └─=
+      │ │ │           │ │       │   └─assignment-expression
+      │ │ │           │ │       │     └─conditional-expression
+      │ │ │           │ │       │       └─logical-OR-expression
+      │ │ │           │ │       │         └─logical-AND-expression
+      │ │ │           │ │       │           └─inclusive-OR-expression
+      │ │ │           │ │       │             └─exclusive-OR-expression
+      │ │ │           │ │       │               └─AND-expression
+      │ │ │           │ │       │                 └─equality-expression
+      │ │ │           │ │       │                   └─relational-expression
+      │ │ │           │ │       │                     └─shift-expression
+      │ │ │           │ │       │                       └─additive-expression
+      │ │ │           │ │       │                         └─multiplicative-expression
+      │ │ │           │ │       │                           └─cast-expression
+      │ │ │           │ │       │                             └─unary-expression
+      │ │ │           │ │       │                               └─postfix-expression
+      │ │ │           │ │       │                                 └─primary-expression
+      │ │ │           │ │       │                                   └─2
+      │ │ │           │ │       ├─;
+      │ │ │           │ │       ├─expression
+      │ │ │           │ │       │ └─assignment-expression
+      │ │ │           │ │       │   └─conditional-expression
+      │ │ │           │ │       │     └─logical-OR-expression
+      │ │ │           │ │       │       └─logical-AND-expression
+      │ │ │           │ │       │         └─inclusive-OR-expression
+      │ │ │           │ │       │           └─exclusive-OR-expression
+      │ │ │           │ │       │             └─AND-expression
+      │ │ │           │ │       │               └─equality-expression
+      │ │ │           │ │       │                 └─relational-expression
+      │ │ │           │ │       │                   ├─relational-expression
+      │ │ │           │ │       │                   │ └─shift-expression
+      │ │ │           │ │       │                   │   └─additive-expression
+      │ │ │           │ │       │                   │     └─multiplicative-expression
+      │ │ │           │ │       │                   │       └─cast-expression
+      │ │ │           │ │       │                   │         └─unary-expression
+      │ │ │           │ │       │                   │           └─postfix-expression
+      │ │ │           │ │       │                   │             └─primary-expression
+      │ │ │           │ │       │                   │               └─j
+      │ │ │           │ │       │                   ├─<
+      │ │ │           │ │       │                   └─shift-expression
+      │ │ │           │ │       │                     └─additive-expression
+      │ │ │           │ │       │                       └─multiplicative-expression
+      │ │ │           │ │       │                         ├─multiplicative-expression
+      │ │ │           │ │       │                         │ └─cast-expression
+      │ │ │           │ │       │                         │   └─unary-expression
+      │ │ │           │ │       │                         │     └─postfix-expression
+      │ │ │           │ │       │                         │       └─primary-expression
+      │ │ │           │ │       │                         │         └─i
+      │ │ │           │ │       │                         ├─/
+      │ │ │           │ │       │                         └─cast-expression
+      │ │ │           │ │       │                           └─unary-expression
+      │ │ │           │ │       │                             └─postfix-expression
+      │ │ │           │ │       │                               └─primary-expression
+      │ │ │           │ │       │                                 └─2
+      │ │ │           │ │       ├─;
+      │ │ │           │ │       ├─expression
+      │ │ │           │ │       │ └─assignment-expression
+      │ │ │           │ │       │   └─conditional-expression
+      │ │ │           │ │       │     └─logical-OR-expression
+      │ │ │           │ │       │       └─logical-AND-expression
+      │ │ │           │ │       │         └─inclusive-OR-expression
+      │ │ │           │ │       │           └─exclusive-OR-expression
+      │ │ │           │ │       │             └─AND-expression
+      │ │ │           │ │       │               └─equality-expression
+      │ │ │           │ │       │                 └─relational-expression
+      │ │ │           │ │       │                   └─shift-expression
+      │ │ │           │ │       │                     └─additive-expression
+      │ │ │           │ │       │                       └─multiplicative-expression
+      │ │ │           │ │       │                         └─cast-expression
+      │ │ │           │ │       │                           └─unary-expression
+      │ │ │           │ │       │                             └─postfix-expression
+      │ │ │           │ │       │                               ├─postfix-expression
+      │ │ │           │ │       │                               │ └─primary-expression
+      │ │ │           │ │       │                               │   └─j
+      │ │ │           │ │       │                               └─++
+      │ │ │           │ │       ├─)
+      │ │ │           │ │       └─statement
+      │ │ │           │ │         └─compound-statement
+      │ │ │           │ │           ├─{
+      │ │ │           │ │           ├─block-item-list
+      │ │ │           │ │           │ └─block-item
+      │ │ │           │ │           │   └─statement
+      │ │ │           │ │           │     └─selection-statement
+      │ │ │           │ │           │       ├─if
+      │ │ │           │ │           │       ├─(
+      │ │ │           │ │           │       ├─expression
+      │ │ │           │ │           │       │ └─assignment-expression
+      │ │ │           │ │           │       │   └─conditional-expression
+      │ │ │           │ │           │       │     └─logical-OR-expression
+      │ │ │           │ │           │       │       └─logical-AND-expression
+      │ │ │           │ │           │       │         └─inclusive-OR-expression
+      │ │ │           │ │           │       │           └─exclusive-OR-expression
+      │ │ │           │ │           │       │             └─AND-expression
+      │ │ │           │ │           │       │               └─equality-expression
+      │ │ │           │ │           │       │                 ├─equality-expression
+      │ │ │           │ │           │       │                 │ └─relational-expression
+      │ │ │           │ │           │       │                 │   └─shift-expression
+      │ │ │           │ │           │       │                 │     └─additive-expression
+      │ │ │           │ │           │       │                 │       └─multiplicative-expression
+      │ │ │           │ │           │       │                 │         ├─multiplicative-expression
+      │ │ │           │ │           │       │                 │         │ └─cast-expression
+      │ │ │           │ │           │       │                 │         │   └─unary-expression
+      │ │ │           │ │           │       │                 │         │     └─postfix-expression
+      │ │ │           │ │           │       │                 │         │       └─primary-expression
+      │ │ │           │ │           │       │                 │         │         └─i
+      │ │ │           │ │           │       │                 │         ├─%
+      │ │ │           │ │           │       │                 │         └─cast-expression
+      │ │ │           │ │           │       │                 │           └─unary-expression
+      │ │ │           │ │           │       │                 │             └─postfix-expression
+      │ │ │           │ │           │       │                 │               └─primary-expression
+      │ │ │           │ │           │       │                 │                 └─j
+      │ │ │           │ │           │       │                 ├─==
+      │ │ │           │ │           │       │                 └─relational-expression
+      │ │ │           │ │           │       │                   └─shift-expression
+      │ │ │           │ │           │       │                     └─additive-expression
+      │ │ │           │ │           │       │                       └─multiplicative-expression
+      │ │ │           │ │           │       │                         └─cast-expression
+      │ │ │           │ │           │       │                           └─unary-expression
+      │ │ │           │ │           │       │                             └─postfix-expression
+      │ │ │           │ │           │       │                               └─primary-expression
+      │ │ │           │ │           │       │                                 └─0
+      │ │ │           │ │           │       ├─)
+      │ │ │           │ │           │       └─statement
+      │ │ │           │ │           │         └─jump-statement
+      │ │ │           │ │           │           ├─break
+      │ │ │           │ │           │           └─;
+      │ │ │           │ │           └─}
+      │ │ │           │ └─block-item
+      │ │ │           │   └─statement
+      │ │ │           │     └─selection-statement
+      │ │ │           │       ├─if
+      │ │ │           │       ├─(
+      │ │ │           │       ├─expression
+      │ │ │           │       │ └─assignment-expression
+      │ │ │           │       │   └─conditional-expression
+      │ │ │           │       │     └─logical-OR-expression
+      │ │ │           │       │       └─logical-AND-expression
+      │ │ │           │       │         └─inclusive-OR-expression
+      │ │ │           │       │           └─exclusive-OR-expression
+      │ │ │           │       │             └─AND-expression
+      │ │ │           │       │               └─equality-expression
+      │ │ │           │       │                 └─relational-expression
+      │ │ │           │       │                   ├─relational-expression
+      │ │ │           │       │                   │ └─shift-expression
+      │ │ │           │       │                   │   └─additive-expression
+      │ │ │           │       │                   │     └─multiplicative-expression
+      │ │ │           │       │                   │       └─cast-expression
+      │ │ │           │       │                   │         └─unary-expression
+      │ │ │           │       │                   │           └─postfix-expression
+      │ │ │           │       │                   │             └─primary-expression
+      │ │ │           │       │                   │               └─j
+      │ │ │           │       │                   ├─>=
+      │ │ │           │       │                   └─shift-expression
+      │ │ │           │       │                     └─additive-expression
+      │ │ │           │       │                       └─multiplicative-expression
+      │ │ │           │       │                         ├─multiplicative-expression
+      │ │ │           │       │                         │ └─cast-expression
+      │ │ │           │       │                         │   └─unary-expression
+      │ │ │           │       │                         │     └─postfix-expression
+      │ │ │           │       │                         │       └─primary-expression
+      │ │ │           │       │                         │         └─i
+      │ │ │           │       │                         ├─/
+      │ │ │           │       │                         └─cast-expression
+      │ │ │           │       │                           └─unary-expression
+      │ │ │           │       │                             └─postfix-expression
+      │ │ │           │       │                               └─primary-expression
+      │ │ │           │       │                                 └─2
+      │ │ │           │       ├─)
+      │ │ │           │       └─statement
+      │ │ │           │         └─compound-statement
+      │ │ │           │           ├─{
+      │ │ │           │           ├─block-item-list
+      │ │ │           │           │ ├─block-item-list
+      │ │ │           │           │ │ └─block-item
+      │ │ │           │           │ │   └─statement
+      │ │ │           │           │ │     └─expression-statement
+      │ │ │           │           │ │       ├─expression
+      │ │ │           │           │ │       │ └─assignment-expression
+      │ │ │           │           │ │       │   └─conditional-expression
+      │ │ │           │           │ │       │     └─logical-OR-expression
+      │ │ │           │           │ │       │       └─logical-AND-expression
+      │ │ │           │           │ │       │         └─inclusive-OR-expression
+      │ │ │           │           │ │       │           └─exclusive-OR-expression
+      │ │ │           │           │ │       │             └─AND-expression
+      │ │ │           │           │ │       │               └─equality-expression
+      │ │ │           │           │ │       │                 └─relational-expression
+      │ │ │           │           │ │       │                   └─shift-expression
+      │ │ │           │           │ │       │                     └─additive-expression
+      │ │ │           │           │ │       │                       └─multiplicative-expression
+      │ │ │           │           │ │       │                         └─cast-expression
+      │ │ │           │           │ │       │                           └─unary-expression
+      │ │ │           │           │ │       │                             └─postfix-expression
+      │ │ │           │           │ │       │                               ├─postfix-expression
+      │ │ │           │           │ │       │                               │ └─primary-expression
+      │ │ │           │           │ │       │                               │   └─count
+      │ │ │           │           │ │       │                               └─++
+      │ │ │           │           │ │       └─;
+      │ │ │           │           │ └─block-item
+      │ │ │           │           │   └─statement
+      │ │ │           │           │     └─expression-statement
+      │ │ │           │           │       ├─expression
+      │ │ │           │           │       │ └─assignment-expression
+      │ │ │           │           │       │   └─conditional-expression
+      │ │ │           │           │       │     └─logical-OR-expression
+      │ │ │           │           │       │       └─logical-AND-expression
+      │ │ │           │           │       │         └─inclusive-OR-expression
+      │ │ │           │           │       │           └─exclusive-OR-expression
+      │ │ │           │           │       │             └─AND-expression
+      │ │ │           │           │       │               └─equality-expression
+      │ │ │           │           │       │                 └─relational-expression
+      │ │ │           │           │       │                   └─shift-expression
+      │ │ │           │           │       │                     └─additive-expression
+      │ │ │           │           │       │                       └─multiplicative-expression
+      │ │ │           │           │       │                         └─cast-expression
+      │ │ │           │           │       │                           └─unary-expression
+      │ │ │           │           │       │                             └─postfix-expression
+      │ │ │           │           │       │                               ├─postfix-expression
+      │ │ │           │           │       │                               │ └─primary-expression
+      │ │ │           │           │       │                               │   └─printf
+      │ │ │           │           │       │                               ├─(
+      │ │ │           │           │       │                               ├─argument-expression-list
+      │ │ │           │           │       │                               │ ├─argument-expression-list
+      │ │ │           │           │       │                               │ │ └─assignment-expression
+      │ │ │           │           │       │                               │ │   └─conditional-expression
+      │ │ │           │           │       │                               │ │     └─logical-OR-expression
+      │ │ │           │           │       │                               │ │       └─logical-AND-expression
+      │ │ │           │           │       │                               │ │         └─inclusive-OR-expression
+      │ │ │           │           │       │                               │ │           └─exclusive-OR-expression
+      │ │ │           │           │       │                               │ │             └─AND-expression
+      │ │ │           │           │       │                               │ │               └─equality-expression
+      │ │ │           │           │       │                               │ │                 └─relational-expression
+      │ │ │           │           │       │                               │ │                   └─shift-expression
+      │ │ │           │           │       │                               │ │                     └─additive-expression
+      │ │ │           │           │       │                               │ │                       └─multiplicative-expression
+      │ │ │           │           │       │                               │ │                         └─cast-expression
+      │ │ │           │           │       │                               │ │                           └─unary-expression
+      │ │ │           │           │       │                               │ │                             └─postfix-expression
+      │ │ │           │           │       │                               │ │                               └─primary-expression
+      │ │ │           │           │       │                               │ │                                 └─"%d "
+      │ │ │           │           │       │                               │ ├─,
+      │ │ │           │           │       │                               │ └─assignment-expression
+      │ │ │           │           │       │                               │   └─conditional-expression
+      │ │ │           │           │       │                               │     └─logical-OR-expression
+      │ │ │           │           │       │                               │       └─logical-AND-expression
+      │ │ │           │           │       │                               │         └─inclusive-OR-expression
+      │ │ │           │           │       │                               │           └─exclusive-OR-expression
+      │ │ │           │           │       │                               │             └─AND-expression
+      │ │ │           │           │       │                               │               └─equality-expression
+      │ │ │           │           │       │                               │                 └─relational-expression
+      │ │ │           │           │       │                               │                   └─shift-expression
+      │ │ │           │           │       │                               │                     └─additive-expression
+      │ │ │           │           │       │                               │                       └─multiplicative-expression
+      │ │ │           │           │       │                               │                         └─cast-expression
+      │ │ │           │           │       │                               │                           └─unary-expression
+      │ │ │           │           │       │                               │                             └─postfix-expression
+      │ │ │           │           │       │                               │                               └─primary-expression
+      │ │ │           │           │       │                               │                                 └─i
+      │ │ │           │           │       │                               └─)
+      │ │ │           │           │       └─;
+      │ │ │           │           └─}
+      │ │ │           └─}
+      │ │ └─block-item
+      │ │   └─statement
+      │ │     └─expression-statement
+      │ │       ├─expression
+      │ │       │ └─assignment-expression
+      │ │       │   └─conditional-expression
+      │ │       │     └─logical-OR-expression
+      │ │       │       └─logical-AND-expression
+      │ │       │         └─inclusive-OR-expression
+      │ │       │           └─exclusive-OR-expression
+      │ │       │             └─AND-expression
+      │ │       │               └─equality-expression
+      │ │       │                 └─relational-expression
+      │ │       │                   └─shift-expression
+      │ │       │                     └─additive-expression
+      │ │       │                       └─multiplicative-expression
+      │ │       │                         └─cast-expression
+      │ │       │                           └─unary-expression
+      │ │       │                             └─postfix-expression
+      │ │       │                               ├─postfix-expression
+      │ │       │                               │ └─primary-expression
+      │ │       │                               │   └─printf
+      │ │       │                               ├─(
+      │ │       │                               ├─argument-expression-list
+      │ │       │                               │ ├─argument-expression-list
+      │ │       │                               │ │ └─assignment-expression
+      │ │       │                               │ │   └─conditional-expression
+      │ │       │                               │ │     └─logical-OR-expression
+      │ │       │                               │ │       └─logical-AND-expression
+      │ │       │                               │ │         └─inclusive-OR-expression
+      │ │       │                               │ │           └─exclusive-OR-expression
+      │ │       │                               │ │             └─AND-expression
+      │ │       │                               │ │               └─equality-expression
+      │ │       │                               │ │                 └─relational-expression
+      │ │       │                               │ │                   └─shift-expression
+      │ │       │                               │ │                     └─additive-expression
+      │ │       │                               │ │                       └─multiplicative-expression
+      │ │       │                               │ │                         └─cast-expression
+      │ │       │                               │ │                           └─unary-expression
+      │ │       │                               │ │                             └─postfix-expression
+      │ │       │                               │ │                               └─primary-expression
+      │ │       │                               │ │                                 └─"\ncount=%d\n"
+      │ │       │                               │ ├─,
+      │ │       │                               │ └─assignment-expression
+      │ │       │                               │   └─conditional-expression
+      │ │       │                               │     └─logical-OR-expression
+      │ │       │                               │       └─logical-AND-expression
+      │ │       │                               │         └─inclusive-OR-expression
+      │ │       │                               │           └─exclusive-OR-expression
+      │ │       │                               │             └─AND-expression
+      │ │       │                               │               └─equality-expression
+      │ │       │                               │                 └─relational-expression
+      │ │       │                               │                   └─shift-expression
+      │ │       │                               │                     └─additive-expression
+      │ │       │                               │                       └─multiplicative-expression
+      │ │       │                               │                         └─cast-expression
+      │ │       │                               │                           └─unary-expression
+      │ │       │                               │                             └─postfix-expression
+      │ │       │                               │                               └─primary-expression
+      │ │       │                               │                                 └─count
+      │ │       │                               └─)
+      │ │       └─;
+      │ └─block-item
+      │   └─statement
+      │     └─jump-statement
+      │       ├─return
+      │       ├─expression
+      │       │ └─assignment-expression
+      │       │   └─conditional-expression
+      │       │     └─logical-OR-expression
+      │       │       └─logical-AND-expression
+      │       │         └─inclusive-OR-expression
+      │       │           └─exclusive-OR-expression
+      │       │             └─AND-expression
+      │       │               └─equality-expression
+      │       │                 └─relational-expression
+      │       │                   └─shift-expression
+      │       │                     └─additive-expression
+      │       │                       └─multiplicative-expression
+      │       │                         └─cast-expression
+      │       │                           └─unary-expression
+      │       │                             └─postfix-expression
+      │       │                               └─primary-expression
+      │       │                                 └─0
+      │       └─;
+      └─}
